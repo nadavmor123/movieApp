@@ -2,7 +2,8 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app.routing';
 import { HttpClientModule } from '@angular/common/http';
-
+import {MovieResolver} from './movies/movie.resolver';
+import {ApiService} from './movies/services/api.service';
 import { AppComponent } from './app.component';
 
 @NgModule({
@@ -14,7 +15,10 @@ import { AppComponent } from './app.component';
     AppRoutingModule,
     HttpClientModule
   ],
-  providers: [],
+  providers: [
+    MovieResolver,
+    ApiService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

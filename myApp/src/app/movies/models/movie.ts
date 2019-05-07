@@ -1,8 +1,9 @@
 export interface Movie {
-    id:Number,
+    Id:Number,
     Title:String,
     Year:String,
     Runtime:String
     Genre:String
-    Director:String
+    Director:String,
+    Poster:String
 }
