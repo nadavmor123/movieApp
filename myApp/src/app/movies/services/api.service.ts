@@ -40,7 +40,11 @@ export class ApiService {
     return this.httpClient.get(`${this.apiURL}+${this.searchTitle.Title}`);
   }
 
-  getThumbnailTitle(id){
+  getAllThumbnails():Thumbnail[]{
+    return this.movieList;
+  }
+
+  getThumbnailTitle(id):Thumbnail{
 
     let title = this.movieList.find(movie=>{
       return movie.Id == id;

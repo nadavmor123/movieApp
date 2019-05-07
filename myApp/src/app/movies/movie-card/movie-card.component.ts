@@ -18,12 +18,11 @@ export class MovieCardComponent implements OnInit {
 
   ngOnInit() {
 
-
     this.route.paramMap.subscribe(params => {
       
       this.movie = {
         Title:this.route.snapshot.data.movie.Title,
-        id:params['params']['id'],  
+        Id:params['params']['id'],  
         Year:this.route.snapshot.data.movie.Year,
         Runtime:this.route.snapshot.data.movie.Runtime,
         Genre:this.route.snapshot.data.movie.Genre,
