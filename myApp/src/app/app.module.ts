@@ -5,12 +5,15 @@ import { HttpClientModule } from '@angular/common/http';
 import {MovieResolver} from './movies/movie.resolver';
 import {ApiService} from './movies/services/api.service';
 import { AppComponent } from './app.component';
+import { ReactiveFormsModule } from '@angular/forms';
+
 
 @NgModule({
   declarations: [
     AppComponent
   ],
   imports: [
+    ReactiveFormsModule,
     BrowserModule,
     AppRoutingModule,
     HttpClientModule

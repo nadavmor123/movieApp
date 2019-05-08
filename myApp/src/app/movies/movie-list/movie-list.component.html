@@ -1,8 +1,8 @@
 <div class="container">
     <div class="row">
         <div class="col-3" *ngFor="let movie of movies">
-            {{movie.Title}}
-            <img src="/src/assets/images/{{movie.Id}}.jpg">
+            <div class="list-header">{{movie.Title}}</div>
+            <img id="list-img-{{movie.Id}}" (click)="selectMovie(movie.Id)" class="img-fluid" src="/assets/images/{{movie.Id}}.jpg">
         </div>
     </div>
 </div>
