@@ -1,7 +1,8 @@
 <div class="container">
     <div class="row">
-        <div class="col" *ngFor="let movie of movies">
+        <div class="col-3" *ngFor="let movie of movies">
             {{movie.Title}}
+            <img src="/src/assets/images/{{movie.Id}}.jpg">
         </div>
     </div>
 </div>
