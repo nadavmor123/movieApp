@@ -1,32 +1,25 @@
-<div class="col-6">
-    <img src="movie.Poster">
-</div>
-<div class="col-6">
+<div class="container">
     <div class="row">
-        <div class="col-md-6 offset-md-3">
+        <div class="col-12 col-sm-6 col-md-6 col-lg-6">
+            <img src="/assets/images/{{movie.Id}}.jpg">
+        </div>
+        <div class="col-12 col-sm-6 col-md-6 col-lg-6">
             <h3>Edit Movie</h3>
             <form [formGroup]="movieForm" (ngSubmit)="onSubmit()">
                 <div class="form-group">
                     <label>Title</label>
                     <input type="text" formControlName="title" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.title.errors }" />
-                    <div *ngIf="submitted && f.title.errors" class="invalid-feedback">
-                        <div *ngIf="f.title.errors.required">Title is required</div>
-                    </div>
+                    <div class="alert alert-danger" *ngIf="movieForm.controls['title'].dirty && f.title.errors && submitted">Title is required</div>
                 </div>
                 <div class="form-group">
                     <label>Director</label>
                     <input type="text" formControlName="director" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.director.errors }" />
-                    <div *ngIf="submitted && f.director.errors" class="invalid-feedback">
-                        <div *ngIf="f.director.errors.required">Director is required</div>
-                    </div>
+                    <div class="alert alert-danger" *ngIf="movieForm.controls['director'].dirty && f.director.errors && submitted">Director is required</div>
                 </div>
                 <div class="form-group">
                     <label>genre</label>
                     <input type="text" formControlName="genre" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.genre.errors }" />
-                    <div *ngIf="submitted && f.genre.errors" class="invalid-feedback">
-                        <div *ngIf="f.genre.errors.required">genre is required</div>
-                        <div *ngIf="f.genre.errors.genre">genre must be a valid genre address</div>
-                    </div>
+                    <div class="alert alert-danger" *ngIf="movieForm.controls['genre'].dirty && f.genre.errors && submitted">Genre is required</div>
                 </div>
                 <div class="form-group">
                     <button class="btn btn-primary">Register</button>

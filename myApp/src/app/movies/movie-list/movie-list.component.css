@@ -5,3 +5,29 @@
     font-weight: bolder;
     font-size: 15px;
 }
+
+@media (min-width: 992px) {
+    .img-fluid {
+        height: 314px;
+    }
+}
+
+@media (min-width: 768px) {
+    .img-fluid {
+        height: 330px;
+    }
+}
+
+@media (min-width: 576px) {
+    .img-fluid {
+        height: 360px;
+    }
+}
+
+@media (max-width: 575px) {
+    .img-fluid {
+        height: 580px;
+        display: block;
+        margin: 0 auto;
+    }
+}

@@ -28,14 +28,13 @@ export class MovieCardComponent implements OnInit {
         Year:this.route.snapshot.data.movie.Year,
         Runtime:this.route.snapshot.data.movie.Runtime,
         Genre:this.route.snapshot.data.movie.Genre,
-        Director:this.route.snapshot.data.movie.Director,
-        Poster:this.route.snapshot.data.movie.Poster
+        Director:this.route.snapshot.data.movie.Director
       }
 
         this.movieForm = this.formBuilder.group({
-            title: ['', Validators.required, [Validators.required]],
-            genre: ['', Validators.required, [Validators.required]],
-            director: ['', [Validators.required]],
+            title: ['', [Validators.required]],
+            genre: ['',[Validators.required]],
+            director: ['',[Validators.required]],
         });
     });
   }
@@ -44,12 +43,9 @@ export class MovieCardComponent implements OnInit {
 
   onSubmit() {
       this.submitted = true;
-
       // stop here if form is invalid
       if (this.movieForm.invalid) {
           return;
       }
-
-      //alert('SUCCESS!! :-)\n\n' + JSON.stringify(this.movieForm.value))
   }
 }

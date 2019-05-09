@@ -4,6 +4,5 @@ export interface Movie {
     Year:String,
     Runtime:String
     Genre:String
-    Director:String,
-    Poster:String
+    Director:String
 }
