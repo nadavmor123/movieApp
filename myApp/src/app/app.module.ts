@@ -6,6 +6,10 @@ import {MovieResolver} from './movies/movie.resolver';
 import {ApiService} from './movies/services/api.service';
 import { AppComponent } from './app.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { StoreModule,Store } from '@ngrx/store';
+import { reducers, metaReducers } from '../app/movies/reducers';
+import { StoreDevtoolsModule } from '@ngrx/store-devtools';
+import { environment } from '../environments/environment';
 
 @NgModule({
   declarations: [
@@ -15,11 +19,14 @@ import { ReactiveFormsModule } from '@angular/forms';
     ReactiveFormsModule,
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    StoreModule.forRoot(reducers, { metaReducers }),
+    !environment.production ? StoreDevtoolsModule.instrument() : []
   ],
   providers: [
     MovieResolver,
-    ApiService
+    ApiService,
+    Store
   ],
   bootstrap: [AppComponent]
 })
