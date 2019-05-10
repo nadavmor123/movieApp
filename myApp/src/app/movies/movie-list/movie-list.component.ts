@@ -13,11 +13,12 @@ import { AppState } from '../reducers';
 export class MovieListComponent implements OnInit {
 
   movies:Thumbnail[];
-  constructor(private api:ApiService ,private router:Router , private store:Store<AppState>) { }
+  constructor(private api:ApiService ,private router:Router , private store:Store<AppState>) { 
+
+    store.subscribe();
+  }
 
   selectMovie(id:Number):void{
-
-    console.log(id);
     this.router.navigate(['/movies/' + id])
   }
 
