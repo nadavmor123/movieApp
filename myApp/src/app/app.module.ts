@@ -7,7 +7,6 @@ import {ApiService} from './movies/services/api.service';
 import { AppComponent } from './app.component';
 import { ReactiveFormsModule } from '@angular/forms';
 
-
 @NgModule({
   declarations: [
     AppComponent
