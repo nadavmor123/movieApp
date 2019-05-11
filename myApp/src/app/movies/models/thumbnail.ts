@@ -1,4 +1,5 @@
 export interface Thumbnail {
     Title:String,
-    Id:Number
+    Id:Number,
+    imdbId:String
 }

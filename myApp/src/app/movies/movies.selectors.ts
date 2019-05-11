@@ -5,6 +5,6 @@ export const SelectMovieState = createFeatureSelector<MovieState>("movies");
 
 export const SelectMovieById = (movieId:number) => createSelector(
     SelectMovieState,
-    movieState => movieState.entities[movieId]
+    movieState=> movieState.entities[movieId]
 );
 

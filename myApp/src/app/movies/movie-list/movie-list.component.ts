@@ -18,7 +18,7 @@ export class MovieListComponent implements OnInit {
     store.subscribe();
   }
 
-  selectMovie(id:Number):void{
+  selectMovie(id:String):void{
     this.router.navigate(['/movies/' + id])
   }
 

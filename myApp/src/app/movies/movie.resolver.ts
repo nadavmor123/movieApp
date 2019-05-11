@@ -19,7 +19,7 @@ export class MovieResolver implements Resolve<any> {
     
     //return this.api.getMovieById(route.params.id);
 
-    const movieId = route.params.id;
+    const movieId = this.convertStringToId(route.params.id);
    
     return this.store.pipe(
       select(
@@ -27,7 +27,7 @@ export class MovieResolver implements Resolve<any> {
        ),
        tap(movie=>{
          if(!movie){
-           this.store.dispatch( new MovieRequested(movieId))
+           this.store.dispatch( new MovieRequested({movieId:movieId}))
          }
        }),
        filter(movie => !!movie),
@@ -35,4 +35,10 @@ export class MovieResolver implements Resolve<any> {
     )
 
   }
+
+  public convertStringToId(str){
+    let num =  Number(str.split("tt")[1].substring(1));
+    return num;
+  } 
 }
+

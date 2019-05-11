@@ -12,6 +12,7 @@ import { EffectsModule } from '@ngrx/effects';
 import { reducers, metaReducers } from './reducers';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { environment } from '../environments/environment';
+import { movieReducer } from './movies.reducers';
 
 @NgModule({
   imports: [
@@ -19,6 +20,7 @@ import { environment } from '../environments/environment';
     MoviesRoutingModule,
     ReactiveFormsModule,
     StoreModule.forRoot(reducers, { metaReducers }),
+    StoreModule.forFeature('movies',movieReducer),
     !environment.production ? StoreDevtoolsModule.instrument() : [],
     EffectsModule.forFeature([MovieEffects])
   ],

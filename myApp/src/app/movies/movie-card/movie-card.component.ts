@@ -22,14 +22,15 @@ export class MovieCardComponent implements OnInit {
 
     this.route.paramMap.subscribe(params => {
       
-      this.movie = {
-        Title:this.route.snapshot.data.movie.Title,
-        Id:params['params']['id'],  
-        Year:this.route.snapshot.data.movie.Year,
-        Runtime:this.route.snapshot.data.movie.Runtime,
-        Genre:this.route.snapshot.data.movie.Genre,
-        Director:this.route.snapshot.data.movie.Director
-      }
+      this.movie; 
+      /*= {
+        //Title:this.route.snapshot.data.movie.Title,
+        //Id:params['params']['id'],  
+        //Year:this.route.snapshot.data.movie.Year,
+        //Runtime:this.route.snapshot.data.movie.Runtime,
+        //Genre:this.route.snapshot.data.movie.Genre,
+        //Director:this.route.snapshot.data.movie.Director
+      }*/
 
         this.movieForm = this.formBuilder.group({
             title: ['', [Validators.required]],

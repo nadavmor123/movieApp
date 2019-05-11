@@ -1,6 +1,7 @@
 import { Action } from '@ngrx/store';
 import { Movie } from './models/movie';
 
+
 export enum MovieActionTypes{
 
     MovieRequested = '[View Movie Page] Movie Requested',
