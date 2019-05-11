@@ -20,24 +20,13 @@ export class MovieCardComponent implements OnInit {
 
   ngOnInit() {
 
-    this.route.paramMap.subscribe(params => {
-      
-      this.movie; 
-      /*= {
-        //Title:this.route.snapshot.data.movie.Title,
-        //Id:params['params']['id'],  
-        //Year:this.route.snapshot.data.movie.Year,
-        //Runtime:this.route.snapshot.data.movie.Runtime,
-        //Genre:this.route.snapshot.data.movie.Genre,
-        //Director:this.route.snapshot.data.movie.Director
-      }*/
+    this.movie = this.route.snapshot.data.movie; 
 
-        this.movieForm = this.formBuilder.group({
-            title: ['', [Validators.required]],
-            genre: ['',[Validators.required]],
-            director: ['',[Validators.required]],
-        });
-    });
+    this.movieForm = this.formBuilder.group({
+      title: [this.movie.Title, [Validators.required]],
+      genre: [this.movie.Genre,[Validators.required]],
+      director: [this.movie.Director,[Validators.required]],
+  });
   }
 
   get f() { return this.movieForm.controls; }

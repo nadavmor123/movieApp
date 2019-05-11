@@ -17,8 +17,6 @@ export class MovieResolver implements Resolve<any> {
     route: ActivatedRouteSnapshot
   ): Observable<any>{
     
-    //return this.api.getMovieById(route.params.id);
-
     const movieId = this.convertStringToId(route.params.id);
    
     return this.store.pipe(

@@ -16,9 +16,6 @@ export function movieReducer(state = initialMoviesState, action:MovieActions):Mo
 
         case MovieActionTypes.MovieLoaded:
         
-            console.log('----movieReducer----');
-            console.log(action.payload.movie);
-
             var movieEntity = {
                 id:Number(action.payload.movie.imdbID.split("tt")[1].substring(1)),
                 Title:action.payload.movie.Title,
@@ -35,8 +32,3 @@ export function movieReducer(state = initialMoviesState, action:MovieActions):Mo
     }
        
 }
-
-function convertStringToId(str: String){
-    let num =  Number(str.split("tt")[1].substring(1));
-    return num;
-  } 
