@@ -1,9 +1,33 @@
 .list-header {
-    padding-top: 10px;
-    margin-bottom: 15px;
+    padding-top: 15px;
+    margin-bottom: 10px;
     height: 55px;
     font-weight: bolder;
     font-size: 15px;
+    text-align: center;
+    line-height: 17px;
+}
+
+.img-fluid {
+    width: 100% !important;
+    margin-bottom: 10px;
+}
+
+img.hover02 {
+    -webkit-transition: .3s ease-in-out;
+    transition: .3s ease-in-out;
+}
+
+img.hover02:hover {
+    width: 500px;
+}
+
+.img-fluid:hover {
+    cursor: pointer;
+}
+
+div#paginig-row-wrapper {
+    margin-top: 25px !important;
 }
 
 @media (min-width: 992px) {

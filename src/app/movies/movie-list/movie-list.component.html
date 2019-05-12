@@ -1,0 +1,28 @@
+<div class="container">
+    <h1 class="fadeInRight"> Herolo Marvel Cinema</h1>
+    <div class="row">
+        <div *ngFor="let movie of collection.data | paginate: config" class="col-12 col-offset-1 col-sm-6 col-md-4 col-lg-3" id="img-list-box">
+            <div class="list-header">{{movie.Title}}</div>
+            <img id="list-img-{{movie.Id}}" (click)="selectMovie(movie.imdbId)" class="img-fluid hover02" src="/assets/images/{{movie.imdbId}}.jpg">
+            <div class="row">
+                <div class="col-6">
+                    <button (click)="selectMovie(movie.imdbId)" type="button" style="width:100%" class="btn btn-primary">
+                        <span style="margin-right:10px">Edit</span> 
+                        <i class="fas fa-pencil-alt"></i>
+                     </button>
+                </div>
+                <div class="col-6">
+                    <button (click)="deleteMovie(movie.imdbId)" type="button" style="width:100%" class="btn btn-danger">
+                        <span style="margin-right:10px">Delete</span>
+                        <i class="far fa-trash-alt"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-6 offset-md-3" id="paginig-row-wrapper">
+            <pagination-controls (pageChange)="pageChanged($event)"></pagination-controls>
+        </div>
+    </div>
+</div>

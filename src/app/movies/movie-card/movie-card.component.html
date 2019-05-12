@@ -1,9 +1,6 @@
 <div class="container">
     <div class="row">
-        <div class="col-12 col-sm-6 col-md-6 col-lg-6">
-            <!--<img src="/assets/images/{{movie.Id}}.jpg">-->
-        </div>
-        <div class="col-12 col-sm-6 col-md-6 col-lg-6">
+        <div class="col-12 col-sm-6 col-md-6 col-lg-6" id="form-box">
             <h3>Edit Movie</h3>
             <form [formGroup]="movieForm" (ngSubmit)="onSubmit()">
                 <div class="form-group">
@@ -22,9 +19,15 @@
                     <div class="alert alert-danger" *ngIf="movieForm.controls['genre'].dirty && f.genre.errors && submitted">Genre is required</div>
                 </div>
                 <div class="form-group">
-                    <button class="btn btn-primary">Register</button>
+                    <div class="row">
+                        <button class="btn btn-primary col-4 offset-4">Submit</button>
+                    </div>
+
                 </div>
             </form>
+        </div>
+        <div class="col-12 col-sm-6 col-md-6 col-lg-6" id="img-box">
+            <img class="movie-card-image img-fluid " src="/assets/images/{{movie.imdbID}}.jpg">
         </div>
     </div>
 </div>

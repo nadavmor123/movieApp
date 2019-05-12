@@ -13,6 +13,9 @@ import { AppState } from '../reducers';
 export class MovieListComponent implements OnInit {
 
   movies:Thumbnail[];
+  config: any;
+  collection = { count: 0, data: [] };
+ 
   constructor(private api:ApiService ,private router:Router , private store:Store<AppState>) { 
 
     store.subscribe();
@@ -22,9 +25,22 @@ export class MovieListComponent implements OnInit {
     this.router.navigate(['/movies/' + id])
   }
 
-
-  ngOnInit() {
-    this.movies = this.api.getAllThumbnails();
+  deleteMovie(id:String):void{
+    
   }
 
+  pageChanged(event){
+    this.config.currentPage = event;
+  }
+
+  ngOnInit() {
+    //this.movies = this.api.getAllThumbnails();
+    this.collection.data =  this.api.getAllThumbnails();
+    this.collection.count = this.collection.data.length;
+    this.config = {
+      itemsPerPage: 4,
+      currentPage: 1,
+      totalItems: this.collection.count
+    };
+  }
 }

@@ -13,6 +13,7 @@ import { reducers, metaReducers } from './reducers';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { environment } from '../environments/environment';
 import { movieReducer } from './movies.reducers';
+import {NgxPaginationModule} from 'ngx-pagination';
 
 @NgModule({
   imports: [
@@ -22,7 +23,8 @@ import { movieReducer } from './movies.reducers';
     StoreModule.forRoot(reducers, { metaReducers }),
     StoreModule.forFeature('movies',movieReducer),
     !environment.production ? StoreDevtoolsModule.instrument() : [],
-    EffectsModule.forFeature([MovieEffects])
+    EffectsModule.forFeature([MovieEffects]),
+    NgxPaginationModule
   ],
   providers: [
     Store 
