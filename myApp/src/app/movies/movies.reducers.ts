@@ -15,7 +15,6 @@ export function movieReducer(state = initialMoviesState, action:MovieActions):Mo
     switch(action.type){
 
         case MovieActionTypes.MovieLoaded:
-        
             var movieEntity = {
                 id:Number(action.payload.movie.imdbID.split("tt")[1].substring(1)),
                 Title:action.payload.movie.Title,
@@ -26,6 +25,8 @@ export function movieReducer(state = initialMoviesState, action:MovieActions):Mo
                 imdbID:action.payload.movie.imdbID
             }
             return adapter.addOne(movieEntity,state)
+        case MovieActionTypes.MovieUpdated:
+            return adapter.updateOne(action.payload.movie,state)
         default:{
             return state;
         }

@@ -3,6 +3,10 @@ import {Movie} from '../models/movie';
 import { ApiService } from '../services/api.service';
 import { ActivatedRoute } from '@angular/router';
 import { FormControl ,FormGroup,Validators,FormBuilder} from '@angular/forms';
+import { Store, select } from '@ngrx/store';
+import { AppState } from '../reducers';
+import { MovieUpdated } from '../movies.actions';
+import { Update } from '@ngrx/entity';
 
 @Component({
   selector: 'movie-card',
@@ -16,7 +20,7 @@ export class MovieCardComponent implements OnInit {
   movieForm: FormGroup;
   submitted = false;
 
-  constructor(private api:ApiService ,private route: ActivatedRoute,private formBuilder: FormBuilder) {}
+  constructor(private api:ApiService ,private route: ActivatedRoute,private formBuilder: FormBuilder,private store:Store<AppState>) {}
 
   ngOnInit() {
 
@@ -29,6 +33,11 @@ export class MovieCardComponent implements OnInit {
   });
   }
 
+  public convertStringToId(str){
+    let num =  Number(str.split("tt")[1].substring(1));
+    return num;
+  } 
+
   get f() { return this.movieForm.controls; }
 
   onSubmit() {
@@ -37,5 +46,17 @@ export class MovieCardComponent implements OnInit {
       if (this.movieForm.invalid) {
           return;
       }
+
+        /*using rxjs Udpate class to represent the changes made to the movie date*/
+      const movie : Update<Movie> = {
+        id:this.convertStringToId(this.movie.imdbID),
+        changes:{
+          Genre:this.movieForm.value.genre,
+          Director:this.movieForm.value.director
+        }
+      }
+
+      /*after we update the non-existing DB - we save the new state in store*/
+      this.store.dispatch(new MovieUpdated({movie:movie}))
   }
 }
