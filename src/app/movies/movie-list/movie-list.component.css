@@ -8,6 +8,11 @@
     line-height: 17px;
 }
 
+h1.movie-list-header {
+    margin-top: 20px;
+    text-align: center;
+}
+
 .img-fluid {
     width: 100% !important;
     margin-bottom: 10px;

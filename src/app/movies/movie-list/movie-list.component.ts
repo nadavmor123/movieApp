@@ -26,21 +26,29 @@ export class MovieListComponent implements OnInit {
   }
 
   deleteMovie(id:String):void{
-    
+      var index = this.collection.data.findIndex((movie)=>{
+          return movie.imdbId == id;
+      });
+
+      this.collection.data.splice(index,1);
+      this.initPagingData(this.collection.data);
   }
 
-  pageChanged(event){
+  pageChanged(event):void{
     this.config.currentPage = event;
   }
 
-  ngOnInit() {
-    //this.movies = this.api.getAllThumbnails();
-    this.collection.data =  this.api.getAllThumbnails();
-    this.collection.count = this.collection.data.length;
+  initPagingData(collectionData):void{
+    this.collection.data = collectionData;
+    this.collection.count = collectionData.length;
     this.config = {
       itemsPerPage: 4,
       currentPage: 1,
       totalItems: this.collection.count
     };
+  }
+
+  ngOnInit() {
+    this.initPagingData(this.api.getAllThumbnails());
   }
 }
