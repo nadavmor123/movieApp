@@ -4,7 +4,7 @@ import {AppComponent} from './app.component';
 
 const appRoutes : Routes = [
     {
-        path: 'movies',
+        path: '',
         loadChildren: './movies/movies.module#MoviesModule'
       }, 
       {

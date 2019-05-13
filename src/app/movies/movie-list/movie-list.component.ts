@@ -22,7 +22,7 @@ export class MovieListComponent implements OnInit {
   }
 
   selectMovie(id:String):void{
-    this.router.navigate(['/movies/' + id])
+    this.router.navigate(['/' + id])
   }
 
   deleteMovie(id:String):void{
